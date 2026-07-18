@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>
+        www.crop_yield_prediction_with_efficient_use_of_fertilizer.com/farmer/query/..
+    </title>
+    <link rel="stylesheet" href="{% static 'css/query.css' %}">
+</head>
+<style>
+    #div1
+    {
+        width:1500px;
+        height:120px;
+        background-image:url("../Static/images/yieldheader.jpg");
+        background-size:1500px 120px;
+    }
+</style>
+<body>
+<div id="div1">
+    <h1 style="color:white;"><br>CROP YIELD PREDICTION AND EFFICIENT USE OF FERTILIZERS</h1>
+</div>
+<div id="div3">
+    <!--    Home page icon to link starts-->
+    <div class="custom_menu-btn" style="float:left;">
+        <button onclick="myFunction()" class="dropdown-btn">
+            <span class="s-1"> </span>
+            <span class="s-2"> </span>
+            <span class="s-3"> </span>
+        </button>
+        <div id="myDropdown" class="dropdown-container">
+            <a href="{% url 'user_home' %}">Home</a>
+            <a href="{% url 'crop_data' %}">View Crop Details</a>
+            <a href="{% url 'query_farmer' %}">Farmer Query</a>
+            <a href="{% url 'crop_prediction' %}">Crop Prediction</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+    </div>
+<!--    Home page icon to link ends-->
+    <center><h1 style="color:white;">Farmer Ask for Fertilizer Usage based on Type of Soil</h1></center>
+    <form method="POST">
+        {% csrf_token %}
+        <center>
+            <label style="font-size:25px;color:white;"><strong>Soil Type</strong></label>
+            <select name='soil' id="soil_id">
+                <option disabled="true" selected >Select</option>
+                {% for i in data.soil_list %}
+                <option value="{{i}}" >{{i}}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Submit" id="sub">
+            <h1 style="text-align:center;color:darkorange;">Efficient Fertilizer of Soil for {{soil1}} </h1><br>
+                <table style="text-align:center;color:white;background-color:blue;"><tr>
+            <th>Soil Type</th><th>Fertilizer</th><th>Temperature</th><th>Humidity</th><th>Moisture</th><th>Potassium</th><th>Phosphorous</th><th>Nitrogen</th></center>
+            {% for i in vdist %}
+            <center>
+                    <tr>
+                    <td> {{i.soil_type}}</td>
+                    <td> {{i.fertilizer}}</td>
+                    <td> {{i.temp}}</td>
+                    <td> {{i.humid}}</td>
+                    <td> {{i.moisture}}</td>
+                    <td> {{i.potassium}}</td>
+                    <td> {{i.phosphorous}}</td>
+                    <td> {{i.nitrogen}}</td>
+                    </tr>
+                  {% endfor %}
+                </table><br><br>
+            </center>
+    </form>
+</div>
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it , .s-2, s-3
+window.onclick = function(event) {
+  if (!event.target.matches('.dropdown-btn') & !event.target.matches('.s-1') & !event.target.matches('.s-2') & !event.target.matches('.s-3')) {
+    var dropdowns = document.getElementsByClassName("dropdown-container");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+</body>
+</html>

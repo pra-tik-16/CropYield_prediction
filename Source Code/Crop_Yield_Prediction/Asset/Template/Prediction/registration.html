@@ -1,0 +1,73 @@
+{% load static %}
+<html>
+<head>
+    <title>www.crop_yield_prediction.com/registration/</title>
+    <link rel="stylesheet" href="{% static 'css/reg.css' %}">
+    <style>
+        #div1{
+        width:1500px;
+        height:120px;
+        background-image:url("../Static/images/yieldheader.jpg");
+        background-size:1500px 120px;
+        font-size:20px;
+        }
+        #div2
+        {
+        width:1500px;
+        height:850px;
+        background-image:url("../Static/images/regbg.jpg");
+        background-size:1500px 100%;
+        color:white;
+        font-size:30px;
+        }
+        #div3
+        {
+        float:left;
+        width:800px;
+        height:850px;
+        }
+        @keyframes myanimation {
+        0% {color: red;}
+        25%{color:yellow;}
+        50%{color:ORANGE;}
+        75%{color:#ADFF2F;}
+        100% {color: #BC8F8F;}
+        }
+</style>
+    <script src="{% static 'js/regist.js' %}"></script>
+</head>
+<body>
+<div id="div2">
+<!--<div class="container-fluid px-1 py-5 mx-auto">-->
+<!--    <div class="row d-flex justify-content-center">-->
+<!--        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">-->
+    <div id="div3">
+        <center><h1 style="animation: myanimation 10s infinite;">CROP YIELD PREDICTION AND EFFICIENT USE OF FERTILIZERS</h1></center>
+    </div>
+            <div class="card">
+                <h5 style="color:#FBD603;" class="text-center mb-4">REGISTRATION</h5>
+                <form class="form-card" method="POST">
+                    {% csrf_token %}
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">First name<span class="text-danger"> *</span></label> <input type="text" id="fname" name="fname" placeholder="Enter your first name" onblur="validate(1)"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Last name<span class="text-danger"> *</span></label> <input type="text" id="lname" name="lname" placeholder="Enter your last name" onblur="validate(2)"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Email<span class="text-danger"> *</span></label> <input type="text" id="email" name="email" placeholder="" onblur="validate(3)"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Password<span class="text-danger"> *</span></label> <input type="password" id="pwd" name="pwd" placeholder="" onblur="validate(7)"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Confirmation Password<span class="text-danger"> *</span></label> <input type="password" id="conpwd" name="conpwd" placeholder="" onblur="validate(8)"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Phone number<span class="text-danger"> *</span></label> <input type="number" id="mob" name="mob" placeholder="" onblur="validate(4)" length="10"> </div>
+                    </div>
+                    <div class="row justify-content-end">
+                        <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary">Submit</button> </div>
+                    </div>
+                </form>
+            </div>
+    </div>
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+</body>
+</html>

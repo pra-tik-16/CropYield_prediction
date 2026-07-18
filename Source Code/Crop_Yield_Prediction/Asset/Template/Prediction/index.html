@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Crop Yeild Prediction</title>
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css'%}" />
+  <!-- fonts awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,,600,700|Poppins:400,500,700&display=swap" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <div class="custom_menu-btn">
+          <button onclick="openNav()">
+            <span class="s-1"> </span>
+            <span class="s-2"> </span>
+            <span class="s-3"> </span>
+          </button>
+        </div>
+        <div id="myNav" class="overlay">
+          <div class="menu_btn-style ">
+            <button onclick="closeNav()">
+              <span class="s-1"> </span>
+              <span class="s-2"> </span>
+              <span class="s-3"> </span>
+            </button>
+          </div>
+          <div class="overlay-content">
+            <a class="active" href="{% url 'index' %}">
+              Home
+            </a>
+            <a href="{% url 'user_login' %}">
+              User/Farmer
+            </a>
+            <a class="" href="{% url 'login' %}">
+              Admin/Crop Prediction
+            </a>
+          </div>
+        </div>
+<!--        <a class="navbar-brand" href="{% url 'index'%}">-->
+<!--          <span>-->
+
+<!--          </span>-->
+<!--        </a>-->
+<!--        <div class="user_option">-->
+<!--          <form class="form-inline">-->
+<!--            <button class="btn  nav_search-btn" type="submit">-->
+<!--              <i class="fa fa-search" aria-hidden="true"></i>-->
+<!--            </button>-->
+<!--          </form>-->
+<!--          <a href="">-->
+<!--            <i class="fa fa-user" aria-hidden="true"></i>-->
+<!--          </a>-->
+<!--        </div>-->
+      </nav>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section position-relative">
+      <a class="navbar-brand" href="{% url 'index'%}">
+        <span>
+
+        </span>
+      </a>
+      <div class="box">
+        <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row">
+                <div class="col-lg-10 ml-auto">
+                  <div class="detail-box">
+                    <h1>
+                      Crop Yeild Prediction<br/>
+                      and Efficient use of Fertilizers
+                    </h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-lg-10 ml-auto">
+                  <div class="detail-box">
+                    <h1>
+                      Crop Yeild Prediction<br />
+                      and Efficient use of Fertilizers
+                    </h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-lg-10 ml-auto">
+                  <div class="detail-box">
+                    <h1>
+                      Crop Yeild Prediction<br />
+                      and Efficient use of Fertilizers
+                    </h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--<div class="carousel_btn-box">-->
+            <!--<a class="carousel-control-prev" href="#customCarousel1" role="button" data-slide="prev">-->
+              <!--<i class="fa fa-angle-left" aria-hidden="true"></i>-->
+              <!--<span class="sr-only">Previous</span>-->
+            <!--</a>-->
+            <!--<a class="carousel-control-next" href="#customCarousel1" role="button" data-slide="next">-->
+              <!--<i class="fa fa-angle-right" aria-hidden="true"></i>-->
+              <!--<span class="sr-only">Next</span>-->
+            <!--</a>-->
+          <!--</div>-->
+        </div>
+      </div>
+    </section>
+    <!-- end slider section -->
+  </div>
+
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+  <!-- End Google Map -->
+
+</body>
+</html>

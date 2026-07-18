@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/farm_query.css' %}">
+    <title>www.crop_yield_prediction.com/view_crop_data/</title>
+</head>
+<body>
+<div id="div1">
+    <h1 style="animation: myanimation 10s infinite;padding:15px;">CROP YIELD PREDICTION AND EFFICIENT USE OF FERTILIZERS</h1>
+</div>
+<div id="div3">
+    <div id="div2">
+<!--    Home page icon to link starts-->
+    <div class="custom_menu-btn">
+        <button onclick="myFunction()" class="dropdown-btn">
+            <span class="s-1"> </span>
+            <span class="s-2"> </span>
+            <span class="s-3"> </span>
+        </button>
+        <div id="myDropdown" class="dropdown-container">
+            <a href="{% url 'home' %}">Home</a>
+            <a href = "{% url 'dist_soiltype' %}">Add New District</a>
+            <a href = "{% url 'soillist' %}">Add New Soil</a>
+            <a href="{% url 'view_crop_data' %}">View Crop Details</a>
+            <a href="{% url 'yield_data' %}">Yield Data Chart</a>
+            <a href="{% url 'response_query' %}">View Query</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+    </div>
+    </div>
+    <!--    Home page icon to link ends-->
+    <form method="POST">
+        {% csrf_token %}
+        <center>
+            <h1 style="text-align:center;color:white;">Farmer Query with Yield Details</h1><br>
+            <table><tr style="text-align:center;color:white;background-color:blue;">
+                <th>District</th><th>Soil Type</th><th>Temperature</th><th>Potassium</th><th>Phosphorous</th><th>Nitrogen</th><th>Fertilizer</th></tr>
+                <center>
+                    {% for i in prod %}
+                    <tr>
+                        <td>{{i.district}}</td>
+                        <td>{{i.soil_type}}</td>
+                        <td>{{i.temp}}</td>
+                        <td>{{i.potassium}}</td>
+                        <td>{{i.phosphorous}}</td>
+                        <td>{{i.nitrogen}}</td>
+                        <td>{{i.fertilizer}}</td>
+                    </tr>
+                    {% endfor %}
+                </center>
+            </table>
+        </center>
+    </form>
+</div>
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it , .s-2, s-3
+window.onclick = function(event) {
+  if (!event.target.matches('.dropdown-btn') & !event.target.matches('.s-1') & !event.target.matches('.s-2') & !event.target.matches('.s-3')) {
+    var dropdowns = document.getElementsByClassName("dropdown-container");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% load static %}
+</html>
+<head>
+    <title>www.crop_yeild_prediction.com/login</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <style>
+        #div1{
+        width:1500px;
+        height:120px;
+        background-image:url("../Static/images/yieldheader.jpg");
+        background-size:1500px 120px;
+        font-size:20px;
+        }
+        #div2
+        {
+        width:1500px;
+        height:600px;
+        background-image:url("../Static/images/yieldbg.jpg");
+        background-size:100% 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <h1 style="color:yellow;">CROP YIELD PREDICTION AND EFFICIENT USE OF FERTILIZERS</h1>
+</div>
+<div id="div2">
+    <div class="login"><br><br>
+      <div class="login-triangle"></div>
+      <h2 class="login-header">Sign IN</h2>
+      <form class="login-container" method="POST">
+          {% csrf_token %}
+          <p><input type="email" placeholder="Email" name="admin_email"></p>
+          <p><input type="password" placeholder="Password" name="admin_pwd"></p>
+          <p><input type="submit" value="Log in"></p>
+          <p><button type="button" class="b1" id="tl"><a style="text-decoration:none; color:white;" href="{% url 'registration' %}">Sign Up for New User</a></button></p>
+<!--          <p><button id="sign"><a href="{% url 'registration' %}" style="text-decoration:none;color:white;background-color:">Sign UP</a></button></p>-->
+      </form>
+    </div>
+</div>
+</body>
+<html>

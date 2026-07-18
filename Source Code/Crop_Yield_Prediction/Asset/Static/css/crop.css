@@ -1,0 +1,177 @@
+/* Menu icon symbol starts*/
+.custom_menu-btn span {
+  display: block;
+  width: 35px;
+  height: 4.5px;
+  background-color: #ffffff;
+  margin: 7px 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.custom_menu-btn button {
+  margin-top: 25px;
+  padding: 0;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+/* Menu icon symbol ends*/
+
+input, select
+{
+width:190px;
+height:40px;
+border-radius:10px 10px 10px 10px;
+background-color:green;
+color:white;
+font-size:20px;
+}
+#div1{
+width:1500px;
+height:120px;
+background-image:url("../images/yieldheader.jpg");
+background-size:1500px 120px;
+font-size:20px;
+}
+fieldset
+{
+margin-right:100px;
+margin-left:100px;
+background-color:#ffffff
+opacity:0.5px;
+padding:10px 20px;
+border:none;
+}
+#div2
+{
+width:1500px;
+height:100%;
+background-image:url("../images/yieldbg.jpg");
+background-size:1500px 100%;
+}
+legend
+{
+background-color: gray;
+color:white;
+padding:5px 10px;
+}
+@keyframes myanimation {
+0% {color: red;}
+25%{color:yellow;}
+50%{color:ORANGE;}
+75%{color:#ADFF2F;}
+100% {color: #BC8F8F;}
+}
+
+/*Home page icon starts*/
+.dropdown-btn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  margin-left:30px;
+  cursor: pointer;
+}
+
+.custom_menu-btn {
+  margin-left:25px;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-container {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-container a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.custom_menu-btn a:hover {
+background-color: #ddd;}
+
+.show {
+display: block;}
+/*Home page icon ends*/
+
+#state_id{
+margin-left:60px;
+}
+
+#district_id{
+margin-left:40px;
+}
+
+#area_id{
+margin-left:50px;
+}
+
+#cropid{
+margin-left:60px;
+}
+
+#year_id{
+margin-left:-2px;
+}
+
+#season_id{
+margin-left:20px;
+}
+
+#soil_id{
+}
+
+#temperature_id{
+margin-left:-20px;
+}
+
+#pot_id{
+margin-left:-20px;
+}
+
+#phos_id{
+margin-left:-25px;
+}
+
+#nitro_id{
+margin-left:20px;
+}
+
+#humid_id{
+margin-left:10px;
+}
+
+#fertilizer_id{
+margin-left:-5px;
+}
+
+#production_id{
+margin-left:-15px;
+}
+
+#sub{
+width:100px;
+height:40px;
+background-color:Orange;
+color:white;
+margin-left:900px;
+}
+
+label
+{
+padding:25px;
+font-size:30px;
+}
+
+

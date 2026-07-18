@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/query.css' %}">
+    <title>
+        www.crop_yield_prediction_with_efficient_use_of_fertilizer.com/farmer/query/..
+    </title>
+    <script>
+    var subjectObject = {
+        "Maharashtra" : ['Ahmednagar', 'Akola', 'Amravati', 'Aurangabad', 'Beed', 'Bhandara', 'Buldhana', 'Chandrapur', 'Dhule', 'Gadchiroli',
+                     'Gondia', 'Hingoli', 'Jalgaon', 'Jalna', 'Kolhapur', 'Latur', 'Mumbai City', 'Mumbai Suburban', 'Nagpur', 'Nanded',
+                     'Nandurbar', 'Nashik', 'Osmanabad', 'Palghar', 'Parbhani', 'Pune', 'Raigad', 'Ratnagiri', 'Sangli', 'Satara',
+                     'Sindhudurg', 'Solapur', 'Thane', 'Wardha', 'Washim', 'Yavatmal'],
+    "Tamil Nadu" : ['ARIYALUR','COIMBATORE', 'CUDDALORE', 'DHARMAPURI', 'DINDIGUL', 'ERODE', 'KANCHIPURAM',
+                        'KANNIYAKUMARI', 'KARUR', 'KRISHNAGIRI', 'MADURAI', 'NAGAPATTINAM', 'NAMAKKAL', 'PERAMBALUR',
+                        'PUDUKKOTTAI', 'RAMANATHAPURAM', 'SALEM', 'SIVAGANGA', 'THANJAVUR', 'THE NILGIRIS', 'THENI',
+                        'THIRUVALLUR', 'THIRUVARUR', 'TIRUCHIRAPPALLI', 'TIRUNELVELI', 'TIRUPPUR', 'TIRUVANNAMALAI',
+                        'TUTICORIN', 'VELLORE', 'VILLUPURAM', 'VIRUDHUNAGAR'],
+    "Karanataka" : ['Bagalkot', 'Bengaluru Urban', 'Bengaluru Rural', 'Belagavi', 'Ballari', 'Bidar', 'Vijayapur', 'Chamarajanagar',
+                  'Chikballapur', 'Chikkamagaluru', 'Chitradurga', 'Dakshina Kannada', 'Davanagere', 'Dharwad', 'Gadag',
+                  'Kalaburagi', 'Hassan', 'Haveri', 'Kodagu', 'Kolar', 'Koppal', 'Mandya', 'Mysuru', 'Raichur', 'Ramanagara',
+                  'Shivamogga', 'Tumakuru', 'Udupi', 'Uttara Kannada', 'Yadgir'],
+    "Andhra Pradesh" : ['Anantapur', 'Chittoor', 'East Godavari', 'Guntur', 'Kadapa', 'Krishna', 'Kurnool', 'Sri Potti Sri Ramulu Nellore',
+                  'Prakasam', 'Srikakulam',	'Visakhapatnam', 'Vizianagaram', 'West Godavari'],
+    "Kerala": ['Alappuzha', 'Ernakulam', 'Idukki', 'Kannur', 'Kasaragod', 'Kollam', 'Kottayam', 'Kozhikode', 'Malappuram',
+                  'Palakkad', 'Pathanamthitta', 'Thiruvananthapuram', 'Thrissur', 'Wayanad']
+    }
+    window.onload = function()
+    {
+      var subjectSel = document.getElementById("state_id");
+      var topicSel = document.getElementById("district_id");
+      for (var x in subjectObject) {
+        subjectSel.options[subjectSel.options.length] = new Option(x, x);
+      }
+      subjectSel.onchange = function()
+      {
+        //empty Chapters- and Topics- dropdowns
+        topicSel.length = 1;
+        //display correct values
+        var y = subjectObject[this.value];
+        console.log(y);
+        for (var i = 0; i < y.length; i++)
+        {
+        topicSel.options[topicSel.options.length] = new Option(y[i], y[i]);
+        }
+      }
+    }
+    </script>
+</head>
+<body>
+<div id="div1">
+    <h1 style="color:white;"><br>CROP YIELD PREDICTION AND EFFICIENT USE OF FERTILIZERS</h1>
+</div>
+<div id="div2">
+</div>
+<div id="div3">
+    <!--    Home page icon to link starts-->
+    <div class="custom_menu-btn" style="float:left;">
+        <button onclick="myFunction()" class="dropdown-btn">
+            <span class="s-1"> </span>
+            <span class="s-2"> </span>
+            <span class="s-3"> </span>
+        </button>
+        <div id="myDropdown" class="dropdown-container">
+            <a href="{% url 'user_home' %}">Home</a>
+            <a href="{% url 'crop_data' %}">View Crop Details</a>
+            <a href="{% url 'query_farmer' %}">Farmer Query</a>
+            <a href="{% url 'crop_prediction' %}">Crop Prediction</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+    </div>
+<!--    Home page icon to link ends-->
+    <center><h1 style="color:white;">Farmer Ask for Fertilizer Usage based on District</h1></center>
+    <form method="POST">
+        {% csrf_token %}
+    <center>
+        <label style="font-size:20px;color:white;"><strong>State</strong></label>
+        <select name='state' id="state_id">
+            <option disabled="true" selected="selected" value="">Please Select State</option>
+        </select>
+        <label style="font-size:20px;color:white;"><strong>District</strong></label>
+        <select name='district' id="district_id">
+            <option disabled="true" selected="selected" value="">Select</option>
+    <!--        {% for i in data %}-->
+    <!--        <option value="{{i.dist_name}}" >{{i.dist_name}}</option>-->
+    <!--        {% endfor %}-->
+        </select>
+        <button type="submit" id="ser" onclick="ShowAndHide()">Search</button>
+        <a href="{% url 'adv_search' %}"><button type="button" class="b1" id="adv">Advance Search</button></a><br><br><br></center>
+        </form>
+        <h1 style="text-align:center;color:Orange;">Efficient Fertilizer for {{dist}} District</h1><br>
+        <center>
+            {% for i in vdist %}
+            <br><table style="background-color:blue;color:white;">
+                <tr>
+                <td>Soil Type </td><td> {{i.soil_type}}</td>
+                </tr>
+                <tr>
+                <td>Fertilizer </td><td> {{i.fertilizer_f}}</td>
+                </tr>
+                <tr>
+                <td>Temperature </td><td> {{i.temperature}}</td>
+                </tr>
+                <tr>
+                <td>Humidity </td><td> {{i.humid}}</td>
+                </tr>
+                <tr>
+                <td>Moisture </td><td> {{i.moist}}</td>
+                </tr>
+                <tr>
+                <td>Potassium </td><td> {{i.potassium_p}}</td>
+                </tr>
+                <tr>
+                <td>Phosphorous </td><td> {{i.phosphorous_ph}}</td>
+                </tr>
+                <tr>
+                <td>Nitrogen </td><td> {{i.nitrogen_n}}</td>
+                </tr>
+              {% endfor %}
+            </table><br><br><br>
+        </center>
+</div>
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it , .s-2, s-3
+window.onclick = function(event) {
+  if (!event.target.matches('.dropdown-btn') & !event.target.matches('.s-1') & !event.target.matches('.s-2') & !event.target.matches('.s-3')) {
+    var dropdowns = document.getElementsByClassName("dropdown-container");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+</body>
+</html>
